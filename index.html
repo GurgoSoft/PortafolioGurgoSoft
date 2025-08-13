@@ -202,7 +202,15 @@
     [data-bs-theme="light"] footer .link-light {
       color: #212529 !important;
     }
-    
+    [data-aos] {
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+}
+
     /* ===== Animación icono de cambio de tema ===== */
     #themeToggle .bi {
       display:inline-block;
@@ -230,11 +238,11 @@
 }
 
 [data-bs-theme="dark"] #themeToggle i {
-  color: #ffc107; /* Amarillo para el sol en modo oscuro */
+  color: #dadada; /*  para el sol en modo oscuro */
 }
 
 [data-bs-theme="light"] #themeToggle i {
-  color: #0d6efd; /* Azul para la luna en modo claro */
+  color: #000000; /*  para la luna en modo claro */
 }
 #themeToggle i {
   transition: transform 0.3s ease, color 0.3s ease;
@@ -357,7 +365,7 @@
       <div class="col-md-6">
         <div class="mb-2 d-flex justify-content-between"><span>Manejo de frameworks</span><span class="text-secondary">Avanzado</span></div>
         <div class="progress" role="progressbar" aria-label="Nivel UX" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress-bar" style="width: 80%"></div>
+          <div class="progress-bar" style="width: 75%"></div>
         </div>
       </div>
     </div>
@@ -514,17 +522,15 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script>
-  /* ======================
-     GOOGLE TRANSLATE
-  ====================== */
+  // ===== Google Translate =====
   function googleTranslateElementInit() {
     new google.translate.TranslateElement(
-      { pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+      { pageLanguage: 'es', includedLanguages: '', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
       'google_translate_element'
     );
   }
 
-  // Guardar y restaurar idioma
+  // Guardar y restaurar idioma seleccionado
   function restoreSelectedLanguage() {
     const savedLang = localStorage.getItem('selectedLang');
     if (savedLang && savedLang !== 'es') {
@@ -535,7 +541,7 @@
           select.dispatchEvent(new Event('change'));
           clearInterval(interval);
         }
-      }, 400);
+      }, 500);
     }
   }
   document.addEventListener('change', e => {
@@ -544,16 +550,8 @@
     }
   });
 
-  // Cargar script de Google Translate
-  const gTranslateScript = document.createElement('script');
-  gTranslateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-  document.head.appendChild(gTranslateScript);
-
-  /* ======================
-     TEMA PERSISTENTE
-  ====================== */
+  // ===== Tema persistente (light/dark) =====
   function setTheme(theme) {
-    document.documentElement.style.transition = 'background-color 0.35s ease, color 0.35s ease';
     document.documentElement.setAttribute('data-bs-theme', theme);
     localStorage.setItem('theme', theme);
 
@@ -563,16 +561,12 @@
         ? '<i class="bi bi-sun"></i>'
         : '<i class="bi bi-moon-stars"></i>';
       toggleBtn.classList.add('is-animating');
-      setTimeout(() => toggleBtn.classList.remove('is-animating'), 350);
+      setTimeout(() => toggleBtn.classList.remove('is-animating'), 360);
     }
-
-    // Eliminar transición para evitar destellos posteriores
-    setTimeout(() => {
-      document.documentElement.style.transition = '';
-    }, 400);
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    // Inicializar tema guardado
     const savedTheme = localStorage.getItem('theme') || 'dark';
     setTheme(savedTheme);
 
@@ -583,122 +577,125 @@
         setTheme(currentTheme === 'dark' ? 'light' : 'dark');
       });
     }
-  });
 
-  /* ======================
-     AÑO DINÁMICO
-  ====================== */
-  document.addEventListener('DOMContentLoaded', () => {
+    // Año dinámico
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
-  });
 
-  /* ======================
-     SCROLL SUAVE
-  ====================== */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  /* ======================
-     BOTÓN VOLVER ARRIBA
-  ====================== */
-  const toTop = document.getElementById('toTop');
-  if (toTop) {
-    window.addEventListener('scroll', () => {
-      toTop.style.display = window.scrollY > 600 ? 'block' : 'none';
-    });
-    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  }
-
-  /* ======================
-     VALIDACIÓN FORMULARIO
-  ====================== */
-  (() => {
-    const forms = document.querySelectorAll('.needs-validation');
-    Array.from(forms).forEach(form => {
-      form.addEventListener('submit', async event => {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        } else {
-          event.preventDefault();
-          alert('¡Gracias! Tu mensaje ha sido enviado.');
-          form.reset();
-          form.classList.remove('was-validated');
+    // Scroll suave
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        form.classList.add('was-validated');
-      }, false);
+      });
     });
-  })();
 
-  /* ======================
-     FILTRO PROYECTOS
-  ====================== */
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const searchInput = document.getElementById('search');
-  const projectItems = document.querySelectorAll('.project-item');
-  let currentFilter = 'all';
+    // Botón volver arriba
+    const toTop = document.getElementById('toTop');
+    if (toTop) {
+      window.addEventListener('scroll', () => {
+        toTop.style.display = window.scrollY > 600 ? 'block' : 'none';
+      });
+      toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
 
-  function applyFilters() {
-    const q = searchInput.value.toLowerCase().trim();
-    projectItems.forEach(item => {
-      const tags = item.dataset.tags.toLowerCase();
-      const title = item.querySelector('.card-title').textContent.toLowerCase();
-      const matchesText = !q || tags.includes(q) || title.includes(q);
-      const matchesFilter = currentFilter === 'all' || tags.includes(currentFilter);
-      item.style.display = matchesText && matchesFilter ? '' : 'none';
+    // Validación formulario
+    (() => {
+      const forms = document.querySelectorAll('.needs-validation');
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', async event => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          } else {
+            event.preventDefault();
+            alert('¡Gracias! Tu mensaje ha sido enviado.');
+            form.reset();
+            form.classList.remove('was-validated');
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    })();
+
+    // Filtro proyectos
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const searchInput = document.getElementById('search');
+    const projectItems = document.querySelectorAll('.project-item');
+    let currentFilter = 'all';
+
+    function applyFilters() {
+      const q = searchInput.value.toLowerCase().trim();
+      projectItems.forEach(item => {
+        const tags = item.dataset.tags.toLowerCase();
+        const title = item.querySelector('.card-title').textContent.toLowerCase();
+        const matchesText = !q || tags.includes(q) || title.includes(q);
+        const matchesFilter = currentFilter === 'all' || tags.includes(currentFilter);
+        item.style.display = matchesText && matchesFilter ? '' : 'none';
+      });
+    }
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        applyFilters();
+      });
     });
-  }
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentFilter = btn.dataset.filter;
-      applyFilters();
-    });
-  });
-  if (searchInput) searchInput.addEventListener('input', applyFilters);
+    if (searchInput) searchInput.addEventListener('input', applyFilters);
 
-  /* ======================
-     ENLACE ACTIVO SCROLL
-  ====================== */
-  const sections = document.querySelectorAll('header[id], section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-        });
+    // Destacar enlace activo
+    const sections = document.querySelectorAll('header[id], section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0.1 });
+    sections.forEach(s => observer.observe(s));
+
+    // Inicializar AOS y asignar animaciones automáticas
+    document.querySelectorAll('section, .card, .project-item, header, footer, img').forEach((el, index) => {
+      if (!el.hasAttribute('data-aos')) {
+        const animations = ['fade-up', 'fade-down', 'zoom-in', 'zoom-out', 'fade-left', 'fade-right'];
+        el.setAttribute('data-aos', animations[index % animations.length]);
       }
     });
-  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0.1 });
-  sections.forEach(s => observer.observe(s));
 
-  /* ======================
-     ANIMACIONES SCROLL (AOS)
-  ====================== */
-  document.addEventListener('DOMContentLoaded', () => {
     AOS.init({
       duration: 800,
       offset: 120,
-      once: true,
-      easing: 'ease-in-out'
+      once: true
+    });
+
+    // Restaurar idioma
+    restoreSelectedLanguage();
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    // Asignar animaciones automáticas a elementos
+    document.querySelectorAll('section, .card, .project-item, header, footer, img').forEach((el, index) => {
+      if (!el.hasAttribute('data-aos')) {
+        const animations = ['fade-up', 'fade-down', 'fade-left', 'fade-right', 'zoom-in', 'zoom-out'];
+        el.setAttribute('data-aos', animations[index % animations.length]);
+      }
+    });
+
+    // Inicializar AOS para que los elementos animen también al salir
+    AOS.init({
+      duration: 800,
+      offset: 120,
+      once: false, // ❗ Esto permite que reaparezcan y desaparezcan
+      mirror: true // ❗ Esto hace que se anime también al salir
     });
   });
-
-  /* ======================
-     RESTAURAR IDIOMA
-  ====================== */
-  window.addEventListener('load', restoreSelectedLanguage);
 </script>
 
 </body>
