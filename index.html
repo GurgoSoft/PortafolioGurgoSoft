@@ -51,9 +51,49 @@
     .kbd{ border:1px solid rgba(255,255,255,.2); padding:.15rem .4rem; border-radius:.375rem; font-size:.85rem; }
     /* Back to top */
     #toTop{ position: fixed; right: 16px; bottom: 16px; display:none; z-index: 1000; }
-    /* Light theme adjustments */
-    [data-bs-theme="light"] .navbar{ background-color: rgba(255,255,255,.75) !important; }
-    [data-bs-theme="light"] .project-card{ border-color: rgba(0,0,0,.06); }
+
+    /* Mejoras para modo claro */
+[data-bs-theme="light"] {
+  --bg-soft: rgba(0,0,0,.03);
+}
+
+[data-bs-theme="light"] body {
+  color: #212529;
+  background-color: #f8f9fa;
+}
+
+[data-bs-theme="light"] .navbar {
+  background-color: rgba(255,255,255,.9) !important;
+}
+
+[data-bs-theme="light"] .nav-link {
+  color: #212529;
+}
+
+[data-bs-theme="light"] .nav-link.active {
+  color: var(--accent) !important;
+}
+
+[data-bs-theme="light"] .project-card {
+  background: linear-gradient(160deg, var(--bg-soft), transparent);
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+[data-bs-theme="light"] .chip {
+  background: var(--bg-soft);
+  border: 1px solid rgba(0,0,0,.12);
+  color: #212529;
+}
+
+[data-bs-theme="light"] .btn-outline-light {
+  color: #212529;
+  border-color: rgba(0,0,0,.2);
+}
+
+[data-bs-theme="light"] .btn-outline-light:hover {
+  background-color: rgba(0,0,0,.05);
+}
+
   </style>
 </head>
 <body>
