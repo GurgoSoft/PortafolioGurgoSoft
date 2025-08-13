@@ -1,0 +1,5 @@
+# Ignorar la carpeta de imágenes
+img/
+
+# Ignorar el archivo PDF
+cv_santiago_gomez.pdf
