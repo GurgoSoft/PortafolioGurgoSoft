@@ -38,7 +38,7 @@
     
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 80px;
+      scroll-padding-top: 100px;
       overflow-x: hidden;
       width: 100%;
     }
@@ -182,31 +182,98 @@
       place-items: center;
       position: relative;
       padding-top: 80px;
+      background: transparent !important;
     }
-    .hero .card {
-      background: linear-gradient(160deg, var(--bg-soft), transparent);
-      border: 1px solid rgba(255,255,255,.08);
+    .hero > *:not(.btn):not(.badge),
+    .hero .row,
+    .hero .col-12,
+    .hero-content,
+    .hero .d-flex:not(:has(.btn)) {
+      box-shadow: none !important;
+      border: none !important;
+      background: transparent !important;
+      background-color: transparent !important;
+      background-image: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+    .hero::before,
+    .hero::after {
+      display: none !important;
+    }
+    .hero-content {
+      background: none !important;
+      background-color: transparent !important;
+      background-image: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+    .hero-content::before,
+    .hero-content::after {
+      display: none !important;
+      content: none !important;
+    }
+    .hero .card,
+    .hero .card * {
+      background: transparent !important;
+      background-color: transparent !important;
+      background-image: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+    .hero .card::before,
+    .hero .card::after {
+      display: none !important;
+      content: none !important;
+    }
+    .hero .col-12::before,
+    .hero .col-12::after,
+    .hero .row::before,
+    .hero .row::after {
+      display: none !important;
+      content: none !important;
     }
     .avatar {
       width: clamp(80px, 15vw, 120px);
       height: clamp(80px, 15vw, 120px);
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid rgba(255,255,255,.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none !important;
+      box-shadow: none !important;
+      transition: none !important;
     }
     .avatar:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 30px rgba(13,110,253,.3);
+      transform: none !important;
+      box-shadow: none !important;
     }
     .hero-image {
       max-height: 600px;
       width: 100%;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      box-shadow: none !important;
+      filter: none !important;
+      transform: none !important;
+      background: transparent !important;
+      transition: none !important;
+      will-change: auto !important;
+      position: static !important;
     }
     .hero-image:hover {
-      transform: scale(1.02);
+      transform: none !important;
+    }
+    
+    /* Eliminar cualquier sombra del contenedor de la imagen */
+    .hero .text-center {
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+    .hero .text-center::before,
+    .hero .text-center::after {
+      display: none !important;
     }
     
     /* Social Links */
@@ -229,6 +296,9 @@
         margin-top: 1rem;
         width: 100%;
         max-width: 100%;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
       }
       .hero .row {
         margin-left: 0;
@@ -246,6 +316,9 @@
       }
       .hero .card {
         padding: 1.5rem !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
       }
       .hero-image {
         max-height: 300px;
@@ -597,6 +670,10 @@
     .form-control, .form-label {
       transition: all 0.3s ease;
       max-width: 100%;
+    }
+    textarea.form-control {
+      resize: none;
+      min-height: 120px;
     }
     .form-control:focus {
       border-color: var(--accent);

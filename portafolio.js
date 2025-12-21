@@ -517,18 +517,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-  
-  // ===== Efecto parallax sutil en hero =====
-  const heroImage = document.querySelector('.hero-image');
-  if (heroImage) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * 0.3;
-      if (scrolled < 800) {
-        heroImage.style.transform = `translateY(${rate}px)`;
-      }
-    }, { passive: true });
-  }
 });
 
 // ===== Performance: usar requestAnimationFrame para animaciones suaves =====
