@@ -80,7 +80,7 @@ const translations = {
     'project.btn.demo': 'Ver Demo',
     'project.btn.info': 'Más info',
     'experience.title': 'Experiencia',
-    'experience1.title': 'Practicante Desarrollador Frontend · Tecnoparque SENA Medellín',
+    'experience1.title': 'Practicante Desarrollador FullStack · Tecnoparque SENA Medellín',
     'experience1.period': 'Agosto 2025 – Febrero 2026',
     'experience1.description': 'Desarrollo de soluciones tecnológicas innovadoras con énfasis en frontend. Liderazgo técnico en 3 de 5 proyectos del programa.',
     'experience1.achievement1': 'Desarrollo de sistema de monitoreo agrícola con React: dashboard interactivo para visualización de datos IoT (sensores de humedad, temperatura, pH)',
