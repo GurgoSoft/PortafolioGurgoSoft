@@ -734,9 +734,57 @@
       background-color: #f8f9fa;
     }
     [data-bs-theme="light"] .navbar {
-      background-color: rgba(255,255,255,.9) !important;
+      background-color: rgba(255,255,255,.95) !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
     }
-    [data-bs-theme="light"] .nav-link { color: #212529; }
+    [data-bs-theme="light"] .navbar-brand {
+      color: #212529 !important;
+    }
+    [data-bs-theme="light"] .nav-link { 
+      color: #495057 !important;
+    }
+    [data-bs-theme="light"] .nav-link:hover,
+    [data-bs-theme="light"] .nav-link.active {
+      color: var(--accent) !important;
+    }
+    [data-bs-theme="light"] .navbar-toggler {
+      border-color: rgba(0,0,0,.1);
+    }
+    [data-bs-theme="light"] .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    [data-bs-theme="light"] .language-selector .dropdown-toggle,
+    [data-bs-theme="light"] .btn-outline-secondary {
+      color: #495057;
+      border-color: rgba(0,0,0,.2);
+      background-color: transparent;
+    }
+    [data-bs-theme="light"] .language-selector .dropdown-toggle:hover,
+    [data-bs-theme="light"] .btn-outline-secondary:hover {
+      background-color: rgba(0,0,0,.05);
+      border-color: rgba(0,0,0,.3);
+      color: #212529;
+    }
+    [data-bs-theme="light"] .language-selector .dropdown-menu {
+      background-color: #ffffff;
+      border-color: rgba(0,0,0,.15);
+    }
+    [data-bs-theme="light"] .language-selector .dropdown-item {
+      color: #212529;
+    }
+    [data-bs-theme="light"] .language-selector .dropdown-item:hover {
+      background-color: var(--accent);
+      color: white;
+    }
+    
+    /* Navbar collapse en móvil - modo claro */
+    @media (max-width: 991px) {
+      [data-bs-theme="light"] .navbar-collapse {
+        background: rgba(255,255,255,.98);
+        box-shadow: 0 4px 12px rgba(0,0,0,.1);
+      }
+    }
+    
     [data-bs-theme="light"] .project-card {
       background: linear-gradient(160deg, var(--bg-soft), transparent);
       border: 1px solid rgba(0,0,0,.08);
