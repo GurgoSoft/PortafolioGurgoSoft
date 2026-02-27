@@ -33,12 +33,12 @@
       height: 3px;
       background: linear-gradient(90deg, var(--accent), #6f42c1);
       z-index: 9999;
-      transition: width 0.1s ease;
+      transition: width 0.05s linear;
     }
     
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px;
+      scroll-padding-top: 80px;
       overflow-x: hidden;
       width: 100%;
     }
@@ -886,8 +886,8 @@
       }
     }
     
-    /* Optimización de performance */
-    .project-card, .btn, .nav-link, .social-link {
+    /* Optimización de performance - Solo para elementos que realmente lo necesitan */
+    .btn-gradient, .social-link {
       will-change: transform;
     }
     
