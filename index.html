@@ -42,6 +42,7 @@
           <li class="nav-item"><a class="nav-link" href="#habilidades" data-translate="nav.skills">Habilidades</a></li>
           <li class="nav-item"><a class="nav-link" href="#proyectos" data-translate="nav.projects">Proyectos</a></li>
           <li class="nav-item"><a class="nav-link" href="#experiencia" data-translate="nav.experience">Experiencia</a></li>
+          <li class="nav-item"><a class="nav-link" href="#formacion" data-translate="nav.education">Formación</a></li>
           <li class="nav-item"><a class="nav-link" href="#contacto" data-translate="nav.contact">Contacto</a></li>
         </ul>
         <div class="d-flex gap-2 ms-lg-3 flex-wrap align-items-center">
@@ -73,10 +74,13 @@
           <div class="d-flex align-items-center gap-2 gap-md-3 mb-3 flex-column flex-sm-row text-center text-sm-start">
             <img src="/img/perfil.png" alt="Santiago Gómez - Frontend Developer" class="avatar" loading="lazy">
             <div class="w-100">
-              <span class="badge text-bg-primary mb-2" data-translate="hero.role">Frontend Developer</span>
+              <div class="d-flex align-items-center gap-2 flex-wrap mb-2">
+                <span class="badge text-bg-primary" data-translate="hero.role">Desarrollador FullStack</span>
+                <span class="badge text-bg-success"><i class="bi bi-circle-fill me-1" style="font-size:.55rem"></i><span data-translate="hero.available">Disponible</span></span>
+              </div>
               <h1 class="h3 mt-2 mb-0"><span data-translate="hero.greeting">Hola, soy</span> <span class="text-primary">Santiago</span></h1>
               <p class="text-secondary mb-0">
-                <span id="typedText" data-translate="hero.fullDescription">Creo interfaces modernas con React y React Native. De la idea al producto, conectando frontend con soluciones backend escalables</span>
+                <span id="typedText" data-translate="hero.fullDescription">Tecnólogo en Análisis y Desarrollo de Software. Construyo aplicaciones web y móviles end-to-end: React, Node.js, Django, bases de datos y despliegue</span>
               </p>
             </div>
           </div>
@@ -101,13 +105,13 @@
     <div class="row g-4">
       <div class="col-lg-6">
         <h2 class="section-title mb-3" data-translate="about.title">Sobre mí</h2>
-        <p data-translate="about.description"><strong>Frontend Developer</strong> con experiencia en <strong>React, React Native y JavaScript</strong>. Me especializo en crear interfaces intuitivas que conectan con soluciones backend robustas (Node.js, Django). He liderado técnicamente 3 de 5 proyectos en <strong>Tecnoparque SENA</strong>, incluyendo sistemas IoT para monitoreo agrícola y aplicaciones móviles con arquitectura escalable.</p>
-        <p data-translate="about.description2" class="mb-3">Combino visión de producto con implementación técnica: desde el diseño en Figma hasta el deploy en producción. Mi objetivo es transformar ideas en experiencias digitales que generen impacto real.</p>
+        <p data-translate="about.description"><strong>Tecnólogo en Análisis y Desarrollo de Software</strong> con experiencia comprobada construyendo aplicaciones <strong>web y móviles end-to-end</strong>: frontend, backend, bases de datos relacionales y NoSQL, e integración de servicios. Lideré técnicamente <strong>3 de 5 proyectos</strong> en <strong>Tecnoparque SENA</strong>, asumiendo desde el modelado de datos hasta el despliegue.</p>
+        <p data-translate="about.description2" class="mb-3">Combino criterio de cliente —desarrollado en 2 años como freelance— con velocidad de aprendizaje y uso intensivo de herramientas de IA para acelerar entregas. Mi backend principal es Node.js y Django, y sumo rápido nuevos stacks según el proyecto.</p>
         <ul class="list-unstyled small text-secondary">
-          <li class="mb-2"><i class="bi bi-check-circle me-2"></i><span data-translate="about.item1">Desarrollo con React y React Native para web y mobile</span></li>
+          <li class="mb-2"><i class="bi bi-check-circle me-2"></i><span data-translate="about.item1">Desarrollo fullstack: React/React Native, Node.js, Django</span></li>
           <li class="mb-2"><i class="bi bi-check-circle me-2"></i><span data-translate="about.item2">Liderazgo técnico en proyectos multidisciplinarios</span></li>
-          <li class="mb-2"><i class="bi bi-check-circle me-2"></i><span data-translate="about.item3">Enfoque en performance, accesibilidad y UX/UI</span></li>
-          <li class="mb-2"><i class="bi bi-check-circle me-2"></i><span data-translate="about.item4">Experiencia con metodologías ágiles y Git/GitHub</span></li>
+          <li class="mb-2"><i class="bi bi-check-circle me-2"></i><span data-translate="about.item3">Modelado y administración de BD: MySQL, PostgreSQL, MongoDB</span></li>
+          <li class="mb-2"><i class="bi bi-check-circle me-2"></i><span data-translate="about.item4">Uso productivo de IA: Claude, ChatGPT y GitHub Copilot</span></li>
         </ul>
       </div>
       <div class="col-lg-6">
@@ -117,7 +121,9 @@
           <div class="col-6"><div class="chip w-100 text-center"><i class="bi bi-filetype-js"></i> JavaScript</div></div>
           <div class="col-6"><div class="chip w-100 text-center"><i class="bi bi-filetype-html"></i> HTML5 & CSS3</div></div>
           <div class="col-6"><div class="chip w-100 text-center"><i class="bi bi-node-plus"></i> Node.js</div></div>
-          <div class="col-6"><div class="chip w-100 text-center"><i class="bi bi-palette"></i> Figma</div></div>
+          <div class="col-6"><div class="chip w-100 text-center"><i class="bi bi-filetype-py"></i> Django</div></div>
+          <div class="col-6"><div class="chip w-100 text-center"><i class="bi bi-database"></i> PostgreSQL</div></div>
+          <div class="col-6"><div class="chip w-100 text-center"><i class="bi bi-robot"></i> IA Tools</div></div>
         </div>
       </div>
     </div>
@@ -152,15 +158,27 @@
         </div>
       </div>
       <div class="col-md-6">
-        <div class="mb-2 d-flex justify-content-between"><span data-translate="skills.databases">MySQL, MongoDB & SQL Server</span><span class="text-secondary" data-translate="skills.intermediate">Intermedio</span></div>
-        <div class="progress" role="progressbar" aria-label="Nivel Bases de Datos" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress-bar" style="width: 65%"></div>
+        <div class="mb-2 d-flex justify-content-between"><span data-translate="skills.databases">MySQL, PostgreSQL, MongoDB & SQL Server</span><span class="text-secondary" data-translate="skills.intermediate">Intermedio</span></div>
+        <div class="progress" role="progressbar" aria-label="Nivel Bases de Datos" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 70%"></div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="mb-2 d-flex justify-content-between"><span data-translate="skills.tools">Git, Figma & Metodologías Ágiles</span><span class="text-secondary" data-translate="skills.advanced">Avanzado</span></div>
         <div class="progress" role="progressbar" aria-label="Nivel Herramientas" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
           <div class="progress-bar" style="width: 80%"></div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-2 d-flex justify-content-between"><span data-translate="skills.ai">IA Aplicada (Claude, ChatGPT, Copilot)</span><span class="text-secondary" data-translate="skills.advanced">Avanzado</span></div>
+        <div class="progress" role="progressbar" aria-label="Nivel IA" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 90%"></div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-2 d-flex justify-content-between"><span data-translate="skills.deploy">Netlify, GitHub & Despliegue</span><span class="text-secondary" data-translate="skills.intermediate">Intermedio</span></div>
+        <div class="progress" role="progressbar" aria-label="Nivel Despliegue" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 75%"></div>
         </div>
       </div>
     </div>
@@ -300,26 +318,57 @@
     <h2 class="section-title mb-4" data-translate="experience.title">Experiencia</h2>
     <div class="timeline">
       <div class="item">
-        <h3 class="h5 mb-1" data-translate="experience1.title">Practicante Desarrollador FullStack · Tecnoparque SENA Medellín</h3>
-        <p class="text-secondary small mb-2" data-translate="experience1.period">Agosto 2025 – Febrero 2026</p>
-        <p class="mb-2" data-translate="experience1.description">Desarrollo de soluciones tecnológicas innovadoras con énfasis en frontend. <strong>Liderazgo técnico en 3 de 5 proyectos del programa</strong>.</p>
+        <h3 class="h5 mb-1" data-translate="experience1.title">Practicante en Desarrollo de Software · Tecnoparque SENA Medellín</h3>
+        <p class="text-secondary small mb-2" data-translate="experience1.period">2025 – 2026</p>
+        <p class="mb-2" data-translate="experience1.description">Desarrollo de soluciones tecnológicas con cobertura fullstack. <strong>Liderazgo técnico en 3 de 5 proyectos</strong>, cubriendo arquitectura, frontend, backend y base de datos en cada uno.</p>
         <ul class="small text-secondary mb-0">
-          <li data-translate="experience1.achievement1">Desarrollo de sistema de monitoreo agrícola con React: dashboard interactivo para visualización de datos IoT (sensores de humedad, temperatura, pH)</li>
-          <li data-translate="experience1.achievement2">Creación de aplicaciones móviles multiplataforma con React Native integradas con backend Node.js</li>
-          <li data-translate="experience1.achievement3">Implementación de aplicación web tipo foro con Django: autenticación, gestión de publicaciones, base de datos relacional</li>
-          <li data-translate="experience1.achievement4">Trabajo colaborativo con Git/GitHub en equipos multidisciplinarios usando metodologías ágiles</li>
+          <li data-translate="experience1.achievement1">Sistema de monitoreo agrícola IoT con React + Node.js: visualización en tiempo real de sensores físicos, modelo de datos relacional y endpoints de ingesta</li>
+          <li data-translate="experience1.achievement2">Aplicación web tipo foro con Django y MySQL desde cero: autenticación, gestión de publicaciones y despliegue a entorno de pruebas</li>
+          <li data-translate="experience1.achievement3">Aplicaciones móviles con React Native integradas con APIs Node.js, ejecutando el ciclo completo bajo metodologías ágiles</li>
+          <li data-translate="experience1.achievement4">Modelado y administración de bases de datos en MySQL, PostgreSQL, SQL Server y MongoDB según el caso de uso</li>
         </ul>
       </div>
       <div class="item">
-        <h3 class="h5 mb-1" data-translate="experience2.title">Desarrollador Frontend Freelance</h3>
-        <p class="text-secondary small mb-2" data-translate="experience2.period">Marzo 2023 – Agosto 2025</p>
-        <p class="mb-2" data-translate="experience2.description">Desarrollo de soluciones web y móviles para emprendimientos locales. Enfoque en entrega de valor y experiencia de usuario.</p>
+        <h3 class="h5 mb-1" data-translate="experience2.title">Desarrollador Web Freelance — Medellín, Antioquia</h3>
+        <p class="text-secondary small mb-2" data-translate="experience2.period">2023 – 2025</p>
+        <p class="mb-2" data-translate="experience2.description">Soluciones web a 5 emprendimientos locales gestionando el ciclo completo: levantamiento de requerimientos, propuesta, desarrollo, pruebas y entrega.</p>
         <ul class="small text-secondary mb-0">
-          <li data-translate="experience2.achievement1">Desarrollo de 8+ sitios web responsive con HTML5, CSS3, JavaScript y Bootstrap 5</li>
-          <li data-translate="experience2.achievement2">Creación de aplicaciones móviles híbridas con React Native para clientes locales</li>
-          <li data-translate="experience2.achievement3">Diseño de interfaces en Figma y prototipado antes del desarrollo</li>
-          <li data-translate="experience2.achievement4">Gestión directa con clientes: levantamiento de requerimientos, iteraciones y despliegue en producción</li>
+          <li data-translate="experience2.achievement1">5 proyectos entregados con HTML, CSS, Bootstrap y JavaScript, con relación directa con el cliente</li>
+          <li data-translate="experience2.achievement2">Diseño responsivo implementado en el 100% de los proyectos, garantizando funcionamiento en móvil y escritorio</li>
+          <li data-translate="experience2.achievement3">Gestión directa cliente: reuniones, ajustes y soporte post-entrega</li>
+          <li data-translate="experience2.achievement4">Portafolio en vivo: <a href="https://portafoliosgd.netlify.app" target="_blank" rel="noopener" class="text-primary">portafoliosgd.netlify.app</a></li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMACIÓN -->
+  <section id="formacion" class="container">
+    <h2 class="section-title mb-4" data-translate="education.title">Formación</h2>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card p-4 h-100">
+          <div class="d-flex align-items-start gap-3">
+            <div class="text-primary fs-2"><i class="bi bi-mortarboard-fill"></i></div>
+            <div>
+              <h3 class="h6 fw-bold mb-1" data-translate="education1.title">Tecnología en Análisis y Desarrollo de Software</h3>
+              <p class="text-primary small mb-1">SENA</p>
+              <p class="text-secondary small mb-0" data-translate="education1.period">2023 – 2026</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card p-4 h-100">
+          <div class="d-flex align-items-start gap-3">
+            <div class="text-primary fs-2"><i class="bi bi-award-fill"></i></div>
+            <div>
+              <h3 class="h6 fw-bold mb-1" data-translate="education2.title">Técnica Laboral en Asistente de Desarrollo de Software</h3>
+              <p class="text-primary small mb-1">CESDE</p>
+              <p class="text-secondary small mb-0" data-translate="education2.period">2023 – 2024</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
